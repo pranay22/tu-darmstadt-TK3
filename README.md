@@ -3,7 +3,7 @@ TK3 - Ubiquitous / Mobile Computing Projects
 
 Group Projects:
 
-Team Members: (Alphabetically)
+Team Members (Alphabetically): 
 A. Carsten Gerald Bruns
 B. Christoph Storm
 C. Daniel Handau
