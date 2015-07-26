@@ -1,4 +1,4 @@
-﻿# tu-darmstadt-TK3
+﻿# TK3 - Ubiquitous / Mobile Computing Projects
 TK3 - Ubiquitous / Mobile Computing Projects
 
 
