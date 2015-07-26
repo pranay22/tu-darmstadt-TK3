@@ -1,7 +1,6 @@
-# tu-darmstadt-TK3
+﻿# tu-darmstadt-TK3
 TK3 - Ubiquitous / Mobile Computing Projects
 
-Group Projects:
 
 Team Members (Alphabetically): 
 A. Carsten Gerald Bruns
@@ -9,6 +8,9 @@ B. Christoph Storm
 C. Daniel Handau
 D. Jan Thomas Sturm
 E. Pranay Sarkar
+
+
+Group Projects:
 
 1. Distributed Pub/Sub based Multiplayer snake game
 Details: [Wiki Page for Snake game](https://github.com/pranay22/tu-darmstadt-TK3/wiki/Distributed-Pub-Sub-based-Multiplayer-snake-game)
