@@ -1,0 +1,23 @@
+######################
+##Error pages expose server info, so, disable them##
+##Custom Error Pages##
+ErrorDocument 400 /tk3_web_frontend/error.php?400
+ErrorDocument 401 /tk3_web_frontend/error.php?401
+ErrorDocument 403 /tk3_web_frontend/error.php?403
+#######Switchable HTTP 404 error page ########
+###Enable only one at a time#####
+ErrorDocument 404 /tk3_web_frontend/error.php?404
+#ErrorDocument 404 /tk3_web_frontend/404.html
+
+ErrorDocument 500 /tk3_web_frontend/error.php?500
+##################################################
+
+
+########Disable .htaccess viewing from browser####
+
+<files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</files>
+

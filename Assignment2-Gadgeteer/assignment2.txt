@@ -1,0 +1,56 @@
+Classes:
+
+ColorCode
+-stores the four colors in a code
+-use GT.Color for colors
+-methods:
+ColorCode();->Constructor, generates a empty color code
+void generateRandom(); ->genrates a random code
+GT.Color getColor(int position);
+void setColor(int position, GT.Color color);
+boolean valid(ColorCode code); -> checks if all positions of code are valid
+boolean isEqual(ColorCode other); ->checks if ColorCodes match exactly, for game finish checks
+ColorCode compareCodes(ColorCode other);->return code is the a ColorCode represantation of the result
+
+
+Mastermind (main game class, could also be the auto-generated one)
+-handles main logic
+-game restart on button click
+-starts a ModeSelection at start-up
+-waits for "callback" from ModeSelection's eventhandler
+-starts the GameView
+-waits for "callback" from GameView's eventhandler
+->starts next round or whatever is needed ;)
+int getCurrentRound();
+
+
+GUI:
+general remarks:
+register own methods button,..handling methods at creation, de-register at end of use (destructor,result method,...)
+perhaps remove coordinates from constructors and use seperate setter-methods
+
+ColorCodeView
+-can draw a color code, not more..
+ColorCodeView(int x, int y, int size, Gadgeteer.Modules.Module.DisplayModule display, ColorCode code);
+
+ColorCodeInput
+-input a color code with joystick
+-invoke finishedHandler on joystick press, maybe only if input is valid..
+ColorCodeInput(int x, int y, Gadgeteer.Modules.Module.DisplayModule display, Gadgeteer.Modules.GHIElectronics.Joystick joystick, Gadgeteer.Modules.GHIElectronics.Button button, EventHandler finishedHandler);
+ColorCode getCode();
+
+ModeSelection
+-allows to select 1- or 2-player mode
+-if two player mode display ColorCodeInput to enter a code
+->wait for ColorCodeInput's finishedHandler
+->result: a color code in both cases
+ModeSelection(Gadgeteer.Modules.Module.DisplayModule display, EventHandler finishedHandler);
+ColorCode getResult();
+
+GameView
+-draws the actual game
+-use ColorCodeInput and some additional ColorCodeViews (to display old rounds, result codes, ..)
+GameView(Gadgeteer.Modules.Module.DisplayModule display, Gadgeteer.Modules.GHIElectronics.Joystick joystick, Gadgeteer.Modules.GHIElectronics.MulticolorLED led, EventHandler inputFinished);
+void nextRound(ColorCode lastResultCode);
+void gameFinished(ColorCode rightCode, booloean gameWon);
+-very likely we need more methods here...

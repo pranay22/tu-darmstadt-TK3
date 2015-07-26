@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.07" >
+
+        <Button
+            android:id="@+id/button_left"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Left" 
+            android:onClick="buttonPressed"/>
+
+        <Button
+            android:id="@+id/button_up"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/button_left"
+            android:text="Up" 
+            android:onClick="buttonPressed"/>
+
+        <Button
+            android:id="@+id/button_down"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/button_up"
+            android:text="Down"
+            android:onClick="buttonPressed" />
+
+        <Button
+            android:id="@+id/button_right"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button_down"
+            android:layout_alignBottom="@+id/button_down"
+            android:layout_toRightOf="@+id/button_down"
+            android:text="Right" 
+            android:onClick="buttonPressed"/>
+
+        <LinearLayout
+            android:id="@+id/rect"
+       	 	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/button_left"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</TableLayout>

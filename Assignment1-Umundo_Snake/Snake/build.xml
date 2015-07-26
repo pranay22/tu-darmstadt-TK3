@@ -1,0 +1,40 @@
+<project name="snake" default="run">
+
+	<property file="build.properties"/>
+	<property name="src" value="snake"/>
+	<property name="bin" value="bin"/>
+	<property name="protoc.gendir" location=""/>
+	<property name="protoc.srcdir" location="proto"/>
+
+	<target name="clean">
+		<delete dir="${bin}"/>
+	</target>
+
+	<target name="protoc">
+		<mkdir dir="${protoc.gendir}" />
+		<apply executable="${protoc.bin}" parallel="true">
+			<arg value="--proto_path" /><arg value="${protoc.srcdir}" />
+			<arg value="--java_out" /><arg value="${protoc.gendir}" />
+			<fileset dir="${protoc.srcdir}">
+				<include name="**/*.proto"/>
+			</fileset>
+		</apply>
+	</target>
+
+	<target name="compile" depends="protoc">
+		<mkdir dir="${bin}" />
+		<javac destdir="${bin}" debuglevel="lines,vars,source" debug="on" encoding="utf-8" includeantruntime="false">
+			<src path="${src}"/>
+			<src path="${protoc.gendir}"/>
+			<classpath>
+				<pathelement location="${umundo.jar}"/>
+				<pathelement location="${protobuf.jar}"/>
+			</classpath>
+			<include name="**/*.java"/>
+		</javac>
+	</target>
+
+	<target name="run" depends="compile">
+		<java classpath="${umundo.jar}:${protobuf.jar}:${bin}" classname="snake.gui.SnakeDesktop" fork="yes" />
+	</target>
+</project>
